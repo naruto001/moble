@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width,user-scalable=no"/>
+        <title>无缝滚动轮播</title>
+        <script>
+            var html = document.documentElement;
+            html.style.fontSize = html.clientWidth / 15 + "px";
+            window.addEventListener('touchstart',function (ev) {
+                ev.preventDefault();
+            },{ passive:false });
+        </script>
+        <style>
+            body {
+                margin:0;
+            }
+            .wrap {
+                height:4.68rem;
+                position:relative;
+            }
+            .list {
+                padding:0;
+                margin:0;
+                width:400%;
+                position:absolute;
+                left:0;
+                top:0;
+                list-style-type:none;
+            }
+            .list li {
+                float:left;
+                width:15rem;
+            }
+            .list img {
+                width:15rem;
+                display:block;
+            }
+            nav {
+                width:15rem;
+                height:10px;
+                position:absolute;
+                bottom:5px;
+                z-index:1000;
+                text-align:center;
+            }
+            nav a {
+                width:15px;
+                height:15px;
+                display:inline-block;
+                background:red;
+                border-radius:50%;
+                vertical-align:top;
+            }
+            nav a.active {
+                background:#fff;
+            }
+        </style>
+    </head>
+    <body>
+        <section class="wrap">
+            <ul class="list">
+                <li>
+                    <img src="img/img.jpg" alt="" />
+                </li>
+                <li>
+                    <img src="img/img2.jpg" alt="" />
+                </li>
+                <li>
+                    <img src="img/img3.jpg" alt="" />
+                </li>
+                <li>
+                    <img src="img/img4.jpg" alt="" />
+                </li>
+            </ul>
+            <nav>
+                <a href="javascript:;" class="active"></a>
+                <a href="javascript:;"></a>
+                <a href="javascript:;"></a>
+                <a href="javascript:;"></a>
+            </nav>
+        </section>
+    </body>
+   <script>
+       var oWrap = document.querySelector('.wrap');
+       var oList = document.querySelector('.list');
+       var aLink = document.querySelectorAll('a');
+       var disX = 0;//按下的坐标
+       var listL = 0; //当前按下list的left值
+       var w = oWrap.clientWidth; //一张图片的宽度
+       var len = 0;
+       var n = 0; //默认的第一个小点为白色
+
+       oList.innerHTML += oList.innerHTML;
+       len = oList.children.length;
+       oList.style.width = w * len + 'px';
+       oList.addEventListener('touchstart',start);
+
+       oList.addEventListener('touchmove',move);
+
+      oList.addEventListener('touchend',end);
+
+       function start(ev) {
+           var e = ev.changedTouches[0];
+           disX = e.pageX;
+           oList.style.transition = 'none';
+
+           var num = Math.round( oList.offsetLeft / w );
+           if(num == 0) {
+               num = aLink.length;
+               oList.style.left = -num*w + 'px';
+           }
+           if(-num == len -1) {
+               num = aLink.length -1;
+               oList.style.left = -num * w + 'px';
+           }
+           listL = this.offsetLeft;
+       }
+
+       function move(ev){
+           var e = ev.changedTouches[0];
+           oList.style.left = ( e.pageX - disX ) + listL + 'px';
+       }
+       function end (ev) {
+           var num = Math.round( oList.offsetLeft / w );
+           oList.style.transition = '0.5s';
+           oList.style.left = num * w +'px';
+           //console.log(-num)
+		aLink[n].className = '';
+		aLink[-num%aLink.length].className = 'active';
+		n = -num%aLink.length;
+       }
+
+
+   </script>
+</html>
