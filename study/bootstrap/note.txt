@@ -1,0 +1,18 @@
+第一部分Bootstrap css：
+===================================================================================================================================
+A.开头
+    1.页面需要用html5开头，即<!DOCTYPE html>
+
+    2.需要在网页的 head 之中添加 viewport meta 标签，即<meta name="viewport" content="width=device-width,user-scalable=no, initial-scale=1.0"/>
+
+B.正文
+    1.正文用<div class="container">...</div>来进行包裹；
+
+      媒体查询解释：
+      // @media screen and ( min-width: 480px ) {...} 是指：屏幕尺寸大于480px时会发生什么变化；
+      // @media screen and ( max-width:800px) and (min-width:500px) {...} 是指：屏幕尺寸大于500px并且小于800px区间时，会发生什么变化；
+      // @media screen and ( max-width:500px) {...} 是指：屏幕尺寸小于500px时会发生什么变化；
+
+    2.Bootstrap网格系统（Grid system）:
+        ①概念：Bootstrap 包含了一个响应式的、移动设备优先的、不固定的网格系统，可以随着设备或视口大小的增加而适当地扩展到 12 列。它包含了用于简单的布局选项的预定义类，也包含了用于生成更多语义布局的功能强大的混合类。
+        
