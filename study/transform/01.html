@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width,user-scalable=no"/>
+        <title>transform简介</title>
+        <style>
+            #box {
+                width:100px;
+                height:100px;
+                padding:100px;
+                border:1px solid #ccc;
+            }
+            #div {
+                width:100px;
+                height:100px;
+                background:red;
+                transition:1.5s;
+            }
+        </style>
+        <script>
+            // window.addEventListener('touchstart', function (ev) {
+            //     ev.preventDefault();
+            // },{passive:false} );
+            document.addEventListener('touchstart', function (ev) {
+                ev.preventDefault();
+            },{passive:false} )
+            window.onload = function () {
+                var oDiv = document.querySelector("#div");
+                oDiv.addEventListener('touchend', function () {
+                    // oDiv.style.WebkitTransform = oDiv.style.transform = " rotate(90deg) ";
+                    // oDiv.style.WebkitTransform = oDiv.style.transform = "  skew(40deg,30deg) ";
+                    // oDiv.style.WebkitTransform = oDiv.style.transform = "scale(1.5)";
+                    oDiv.style.WebkitTransform = oDiv.style.transform = "translate(50px)";
+                } )
+            }
+
+        </script>
+    </head>
+    <body>
+        <!-- 
+            transform简介
+              01.在移动端使用transform时，格式为-webkit-transform
+              
+              02.rotate(Xdeg) 旋转多少角度；
+                 skew(Xdeg)  斜切多少角度，默认是X轴的斜切（沿着X轴方向拉伸，与Y轴之间有个角度，就是X轴斜切角度）；也可以直接注明X轴斜切为skewX(deg)或Y轴斜切为skewY(deg);
+                             Y轴斜切的正值：左上和右下拉扯后，上斜线与X轴之间的夹角为正值；反之，右上与左下拉扯后，下斜线与X轴之间的夹角为负值；
+
+            
+        -->
+        <div id="box">
+            <div id="div"></div>
+        </div>
+    </body>
+</html>

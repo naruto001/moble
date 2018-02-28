@@ -1,0 +1,28 @@
+transform简介
+              01.在移动端使用transform时，格式为-webkit-transform
+              
+              02.rotate(Xdeg) 旋转多少角度；默认是围绕中心点旋转
+
+              03. skew(..deg) ①斜切多少角度，默认是X轴的斜切（沿着X轴方向拉伸，与Y轴之间有个角度，就是X轴斜切角度）；也可以直接注明X轴斜切为skewX(deg)或Y轴斜切为skewY(deg);
+                              ②Y轴斜切的正值：左上和右下拉扯后，上斜线与X轴之间的夹角为正值；反之，右上与左下拉扯后，下斜线与X轴之间的夹角为负值；
+                              ③skew(adeg, bdeg ):X轴和Y轴同时斜切，（x,y）;
+                              ④默认是围绕中心点旋转
+
+              04.scale 缩放  ①默认是x,y都缩放
+                            ②scale(X) X轴缩放
+                            ③scale(Y) Y轴缩放
+                            ④默认是围绕中心点旋转
+
+              05.translate 位移   ①单位px
+                                ②translateX  X轴的位移
+                                ③translateY  Y轴的位移
+                                ④默认是X轴的位移
+                                ⑤translate(X,Y)  X轴Y轴同时位移
+
+              06.transform-origin: 变换原点   ①默认是几何中心点（center,center)或 (50%,50%)
+                                            ②接受的单位：   
+                                                关键字 left,right...
+                                                百分比
+                                                距离单位（px,rem,em...)
+                                            ③在移动端也要加前缀： -webkit-transform-origin
+              07.执行顺序：  ①先写的后执行
