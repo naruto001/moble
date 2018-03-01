@@ -5,6 +5,10 @@ A.开头
 
     2.需要在网页的 head 之中添加 viewport meta 标签，即<meta name="viewport" content="width=device-width,user-scalable=no, initial-scale=1.0"/>
 
+    3.<link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">  
+	<script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+	<script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
 B.正文
     1.正文用<div class="container">...</div>来进行包裹；
 
